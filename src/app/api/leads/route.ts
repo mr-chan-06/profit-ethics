@@ -39,3 +39,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Failed to submit lead" }, { status: 500 });
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Profit@123'}`) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+
+    if (!id) {
+      return NextResponse.json({ error: "Lead ID is required" }, { status: 400 });
+    }
+
+    await connectDB();
+    await Lead.findByIdAndDelete(id);
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting lead:", error);
+    return NextResponse.json({ error: "Failed to delete lead" }, { status: 500 });
+  }
+}

@@ -71,6 +71,27 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleDeleteLead = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this lead?")) return;
+    
+    try {
+      const res = await fetch(`/api/leads?id=${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${password}`
+        }
+      });
+      if (res.ok) {
+        setLeads(prev => prev.filter(lead => lead._id !== id));
+      } else {
+        alert("Failed to delete lead");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error deleting lead");
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className={styles.adminContainer}>
@@ -156,15 +177,31 @@ export default function AdminDashboard() {
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Date</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {leads.map((lead: any) => (
-                    <tr key={lead.id}>
+                    <tr key={lead._id}>
                       <td>{lead.name}</td>
                       <td>{lead.phone}</td>
                       <td>{lead.email}</td>
-                      <td>{new Date(lead.created_at).toLocaleDateString()}</td>
+                      <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
+                      <td>
+                        <button 
+                          onClick={() => handleDeleteLead(lead._id)}
+                          style={{
+                            background: '#ff4444', 
+                            color: 'white', 
+                            border: 'none', 
+                            padding: '4px 8px', 
+                            borderRadius: '4px', 
+                            cursor: 'pointer'
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
