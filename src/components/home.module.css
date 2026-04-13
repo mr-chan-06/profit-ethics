@@ -1,0 +1,309 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  z-index: 10;
+  max-width: 900px;
+}
+
+.title {
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Candlestick bg animation */
+.chartBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Section styling */
+.sectionTitle {
+  font-size: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.aboutText {
+  flex: 1;
+}
+
+.aboutText h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--accent-green);
+}
+
+.aboutText p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.trustBadge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid var(--accent-green);
+  border-radius: 30px;
+  color: var(--accent-green);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+/* Modules */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.moduleCard {
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moduleCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+  border-color: var(--accent-blue);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: var(--gradient-neon);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background);
+  font-size: 24px;
+}
+
+.moduleCard h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.moduleCard p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Details & Pricing */
+.pricingSection {
+  background: linear-gradient(180deg, rgba(10, 14, 23, 0) 0%, rgba(25, 33, 49, 0.4) 50%, rgba(10, 14, 23, 0) 100%);
+}
+
+.detailsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.detailsList {
+  list-style: none;
+}
+
+.detailsList li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid var(--surface-border);
+  padding-bottom: 15px;
+}
+
+.detailsIcon {
+  color: var(--accent-purple);
+}
+
+.pricingBox {
+  text-align: center;
+  padding: 50px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--accent-purple);
+  box-shadow: 0 0 50px rgba(179, 0, 255, 0.15);
+  border-radius: 20px;
+  position: relative;
+}
+
+.offerBadge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-neon);
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.strikePrice {
+  font-size: 24px;
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.finalPrice {
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--accent-green);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  margin-bottom: 30px;
+}
+
+/* Why Us & Location */
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+}
+
+.featureItem svg {
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+/* Contact */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contactInfo {
+  padding: 40px;
+}
+
+.contactInfo h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.contactMethod {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.contactMethod svg {
+  color: #00ff88;
+  width: 30px;
+  height: 30px;
+}
+
+.formPanel {
+  padding: 40px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--accent-blue);
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid var(--surface-border);
+  margin-top: 100px;
+  color: var(--text-secondary);
+}
+
+.disclaimer {
+  font-size: 12px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .detailsWrapper, .contactGrid, .about {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}
