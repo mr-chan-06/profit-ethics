@@ -134,6 +134,58 @@ export default function HomeClient({ settings }: { settings: Record<string, stri
         </div>
       </section>
 
+      {/* Feature Showcase */}
+      <section className={`section container`} id="features-detail">
+        {/* Market Profile */}
+        <motion.div 
+          className={styles.featureShowcase}
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}
+        >
+          <div className={styles.featureText}>
+            <h2>Market <span className="text-gradient">Profile</span></h2>
+            <p>
+              Market is giving Overall direction and identity the Intraday trends...
+            </p>
+            <p>
+              We are Easily pick the Trades Using Its shapes and Activity, and predict in Sideways that market is bullish or bearish sentiment..
+            </p>
+          </div>
+          <div className={styles.featureImages}>
+            <div className={styles.imageGrid}>
+              {/* @ts-ignore */}
+              <img src="/market-profile-1.jpg" alt="Market Profile Chart 1" className={styles.showcaseImage} onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              {/* @ts-ignore */}
+              <img src="/market-profile-2.jpg" alt="Market Profile Chart 2" className={styles.showcaseImage} onError={(e) => { e.currentTarget.style.display = 'none' }} />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Orderflow */}
+        <motion.div 
+          className={`${styles.featureShowcase} ${styles.reverseLayout}`}
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}
+          transition={{ delay: 0.2 }}
+        >
+          <div className={styles.featureText}>
+            <h2>Orderflow</h2>
+            <p>
+              Identify the Realtime Buyers and Sellers,
+            </p>
+            <p>
+              Just by looking at the 1-minute chart, we can clearly understand whether there are buyers or sellers, and who is dominating on that day.
+            </p>
+          </div>
+          <div className={styles.featureImages}>
+            <div className={styles.imageGrid}>
+              {/* @ts-ignore */}
+              <img src="/orderflow-1.jpg" alt="Orderflow Chart 1" className={styles.showcaseImage} onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              {/* @ts-ignore */}
+              <img src="/orderflow-2.jpg" alt="Orderflow Chart 2" className={styles.showcaseImage} onError={(e) => { e.currentTarget.style.display = 'none' }} />
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Details & Pricing */}
       <section className={`section ${styles.pricingSection}`} id="pricing">
         <div className={`container ${styles.detailsWrapper}`}>
