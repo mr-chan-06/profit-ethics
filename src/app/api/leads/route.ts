@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Profit@123'}`) {
+    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Admin@123'}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
 export async function DELETE(request: Request) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Profit@123'}`) {
+    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Admin@123'}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

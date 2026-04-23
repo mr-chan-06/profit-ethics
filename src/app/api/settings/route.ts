@@ -24,7 +24,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Profit@123'}`) {
+    if (authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'Admin@123'}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
